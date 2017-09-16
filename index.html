@@ -1,31 +1,31 @@
 <!doctype html>
 <html>
-	<head>
-		<title>Keyster Auth</title>
-	</head>
-	<body>
-		<div id="recaptcha"></div>
-		<span style="display: none;" id="token"></span>
-		<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
-		<script>
-			var config = {
-				apiKey: "AIzaSyAF1nRCCALm5l38u48t3IcPNkuCIp785HE",
-				authDomain: "keyster-faef2.firebaseapp.com",
-				databaseURL: "https://keyster-faef2.firebaseio.com",
-				projectId: "keyster-faef2",
-				storageBucket: "keyster-faef2.appspot.com",
-				messagingSenderId: "456632521146"
-			};
-			firebase.initializeApp(config);
-		</script>
-		<script>
-			window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha');
-			window.recaptchaVerifier.render();
-			window.recaptchaVerifier.verify().then(token => {
-				window.onmessage = function(event) {
-					event.source.postMessage(token, event.origin)
-				}
-			})
-		</script>
-	</body>
+  <head>
+    <title>Keyster Auth</title>
+  </head>
+  <body>
+    <div id="recaptcha"></div>
+    <span style="display: none;" id="token"></span>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+    <script>
+      var config = {
+        apiKey: "AIzaSyAF1nRCCALm5l38u48t3IcPNkuCIp785HE",
+        authDomain: "keyster-faef2.firebaseapp.com",
+        databaseURL: "https://keyster-faef2.firebaseio.com",
+        projectId: "keyster-faef2",
+        storageBucket: "keyster-faef2.appspot.com",
+        messagingSenderId: "456632521146"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script>
+      window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha');
+      window.recaptchaVerifier.render();
+      window.recaptchaVerifier.verify().then(token => {
+        window.onmessage = function(event) {
+          event.source.postMessage(token, event.origin)
+        }
+      })
+    </script>
+  </body>
 </html>
